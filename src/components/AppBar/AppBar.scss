@@ -1,0 +1,56 @@
+@import "../../settings";
+
+.navbar-app {
+  padding-left: $gap;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: $navbar-app-bg-color;
+  justify-content: space-between;
+  .dark-mode {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    .custome-input {
+      display: flex;
+      padding-right: 12px;
+    }
+    input[type="checkbox"] {
+      visibility: hidden;
+      &:checked + label {
+        transform: rotate(360deg);
+        background-color: #000;
+        &:before {
+          transform: translateX(22.5px);
+          background-color: #fff;
+        }
+      }
+    }
+
+    label {
+      display: flex;
+      width: 45px;
+      height: 22.5px;
+      border: 3px solid;
+      border-radius: 99em;
+      position: relative;
+      transition: transform 0.75s ease-in-out;
+      transform-origin: 50% 50%;
+      cursor: pointer;
+
+      &:before {
+        transition: transform 0.75s ease;
+        transition-delay: 0.25s;
+        content: "";
+        display: block;
+        position: absolute;
+        width: 13.5px;
+        height: 13.5px;
+        background-color: #000;
+        border-radius: 50%;
+        top: 1.5px;
+        left: 1px;
+      }
+    }
+  }
+}

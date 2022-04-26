@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.scss";
+import AppBar from "./components/AppBar/AppBar";
+import BoardBar from "./components/BoardBar/BoardBar";
+import BoardContent from "./components/BoardContent/BoardContent";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const setStatusTheme = (state) => {
+    setDarkMode(state);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={darkMode ? "darkMode" : "trello-container"}>
+      <AppBar darkMode={darkMode} setStatusTheme={setStatusTheme} />
+      <BoardBar />
+      <BoardContent />
     </div>
   );
 }

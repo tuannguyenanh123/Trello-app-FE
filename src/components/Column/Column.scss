@@ -1,0 +1,125 @@
+@import "../../settings";
+.column {
+  flex: 0 0 auto;
+  width: 300px;
+  height: calc(100vh - 50px - 40px - #{$gap});
+  // ap dung all cho chilren
+  > * {
+    background-color: $list-bg-color;
+    color: black;
+    padding: 0 8px;
+  }
+  margin-left: $gap;
+  header {
+    // padding-left: 15px;
+    padding-top: 5px;
+    height: $column-header-height;
+    // line-height: $column-header-height;
+    font-size: 16px;
+    font-weight: 500;
+    border-top-left-radius: $column-border-radius;
+    border-top-right-radius: $column-border-radius;
+    cursor: pointer;
+    &.column-drag-handle {
+      display: flex;
+      padding-right: 3px;
+      .column-title {
+        flex: 9;
+      }
+      .column-dropdown {
+        flex: 1;
+        .dropdown-toggle.btn {
+          padding: 0 7px;
+          &:after {
+            content: "...";
+            border: none !important;
+            outline: none !important;
+            box-shadow: none !important;
+          }
+          transition: all 0.25s;
+          &:hover {
+            background-color: #ced4da;
+          }
+          &:focus {
+            outline: none !important;
+            box-shadow: none !important;
+          }
+        }
+      }
+    }
+  }
+  .task-list {
+    list-style: none;
+    margin: 0;
+    max-height: calc(
+      100% - #{$column-header-height} - #{$column-footer-height}
+    );
+    overflow-y: auto;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+
+    .card-ghost {
+      transition: transform 0.18s ease;
+      transform: rotateZ(5deg);
+      font-weight: bold;
+    }
+
+    .card-ghost-drop {
+      transition: transform 0.18s ease-in-out;
+      transform: rotateZ(0deg);
+      font-weight: bold;
+    }
+
+    .card-drop-preview {
+      background-color: rgba(150, 150, 200, 0.1);
+      border: 1px dashed #abc;
+      margin: 5px;
+    }
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+    &::-webkit-scrollbar:vertical {
+      width: 11px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: darken($color: $list-bg-color, $amount: 15);
+      border-radius: 5px;
+    }
+  }
+  .add-new-card {
+    height: 120px;
+    width: inherit;
+    // padding: 5px;
+    background-color: $list-bg-color;
+    border-bottom-right-radius: $column-border-radius;
+    border-bottom-left-radius: $column-border-radius;
+    padding-bottom: 10px;
+    .group-btn {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      i {
+        font-size: 30px;
+        padding-left: 10px;
+        cursor: pointer;
+        color: #878787;
+      }
+    }
+  }
+  footer {
+    padding-left: 15px;
+    height: $column-footer-height;
+    line-height: $column-footer-height;
+    border-bottom-left-radius: $column-border-radius;
+    border-bottom-right-radius: $column-border-radius;
+    color: #888;
+    .footer-icon {
+      margin-left: 5px;
+      cursor: pointer;
+      &:hover {
+        color: #444;
+      }
+    }
+  }
+}

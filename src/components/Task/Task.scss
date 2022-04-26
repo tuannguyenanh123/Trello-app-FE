@@ -1,0 +1,17 @@
+@import "../../settings";
+.task-item {
+  background-color: white;
+  margin-bottom: $gap;
+  padding: $gap;
+  border-radius: $card-border-radius;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  img {
+    display: block;
+    width: calc(100% + 2 * #{$gap});
+    margin: -$gap 0 -$gap 10px;
+    border-top-left-radius: $column-border-radius;
+    border-top-right-radius: $column-border-radius;
+  }
+}

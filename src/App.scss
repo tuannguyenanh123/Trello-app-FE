@@ -1,0 +1,55 @@
+@import "./settings";
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans,
+    Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-box-smoothing: grayscale;
+  line-height: 1.3rem;
+  font-size: 14px;
+}
+.darkMode {
+  background-color: $board-bg-color-darkMode;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px 40px 1fr;
+  color: $app-main-color;
+  transition: all 0.25s linear;
+  .icon {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .column-title-edit {
+    &:focus {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    background-color: inherit;
+    border: none !important;
+    cursor: pointer;
+  }
+}
+.trello-container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px 40px 1fr;
+  background-color: $board-bg-color;
+  color: $app-main-color;
+  transition: all 0.25s linear;
+
+  .icon {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+  .column-title-edit {
+    &:focus {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    background-color: inherit;
+    border: none !important;
+    cursor: pointer;
+  }
+}
